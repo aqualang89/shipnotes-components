@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+node_modules/
+STATE.md
+PROJECT_STATE.md
+PROJECT_CONTEXT.md
+AGENTS.md
+AGENTS.override.md
+DELIVERY.md
+POST.md
+proof/
+source/
+tmp/
+*.mp4
+*.zip
+.DS_Store

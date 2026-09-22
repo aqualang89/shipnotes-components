@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Engine Room / Ship Notes</title><script src="engine-telegraph.js" defer></script>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#16191b;color:#ece9df;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;background-image:radial-gradient(ellipse at 50% 42%,#353a3a,transparent 65%);min-height:100vh}main{max-width:920px;padding:44px 30px 70px;margin:auto}header{display:flex;justify-content:space-between;font:11px monospace;letter-spacing:2px;color:#a7aea9}h1{font-size:clamp(42px,7vw,76px);line-height:.99;letter-spacing:-3px;font-weight:500;margin:52px 0 18px;text-wrap:balance}h1 span{color:#fe8854}p{color:#b9bcb7;font-size:15px;line-height:1.6;max-width:460px;margin:0 0 32px}.lab{display:flex;gap:18px;justify-content:space-between;align-items:center;margin:26px 8px 0;font:12px monospace;color:#b9bcb7}.lab button{font:inherit;background:#222729;color:#e4dfd0;border:1px solid #ffffff26;border-radius:8px;min-height:44px;padding:10px 15px;cursor:pointer}.lab button:focus-visible{outline:2px solid #fe8854;outline-offset:4px}.lab button:active{scale:.96}.note{font:11px/1.8 monospace;color:#9da49e;margin:22px 8px 0;max-width:620px}@media(max-width:500px){main{padding:28px 12px}header{font-size:9px}h1{letter-spacing:-1.8px;margin-top:38px}.lab{align-items:start;flex-direction:column;gap:10px}}
+</style></head><body><main>
+<header><span>SHIP NOTES / 009</span><span>INTERACTIVE INSTRUMENTS</span></header>
+<h1>Give an order.<br><span>Wait for the engine.</span></h1>
+<p>A throttle with a second opinion. Move the handle. The engine answers on its own dial.</p>
+<engine-telegraph manual></engine-telegraph>
+<div class="lab"><span>DRAG THE HANDLE OR PICK A SPEED</span><button id="interlock" aria-pressed="true">Demo interlock: ON</button></div>
+<p class="note">HTML + CSS + SVG + JavaScript. No libraries.<br>Simulated engine: replies after 1.1 seconds. With the demo interlock on, Full is refused. No hardware or server is connected.</p>
+</main><script>
+let locked=true;const control=document.querySelector('engine-telegraph'),interlock=document.getElementById('interlock');
+interlock.onclick=()=>{locked=!locked;interlock.textContent='Demo interlock: '+(locked?'ON':'OFF');interlock.setAttribute('aria-pressed',String(locked));};
+control.addEventListener('order',e=>{const {index,confirm,reject,signal}=e.detail;const deny=locked&&index===3;const timer=setTimeout(()=>deny?reject('Load limit. Holding previous speed.'):confirm(),1100);signal.addEventListener('abort',()=>clearTimeout(timer),{once:true});});
+</script></body></html>
