@@ -4,6 +4,10 @@ A small desk lamp that works as a theme switch. Pull the brass cord, tap it, or 
 
 ## Try it
 
+**[Open the live demo](https://aqualang89.github.io/shipnotes-components/components/pull-lamp/demo.html)**. It runs in the browser, phones included.
+
+To run it locally:
+
 1. [Download the repository ZIP](https://github.com/aqualang89/shipnotes-components/archive/refs/heads/main.zip) and extract it.
 2. Open `components/pull-lamp/demo.html` in a browser.
 3. Drag the small brass handle down and release, tap it, or press Tab to focus it and use Enter or Space.
