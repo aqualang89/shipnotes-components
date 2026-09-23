@@ -1,35 +1,31 @@
 # Ship Notes components
 
-Small interfaces with moving parts. A lamp that switches your theme, a record player that plays audio, a note that folds into an envelope.
+Small interfaces with moving parts, built for [Ship Notes](https://x.com/shipnotesai). New components are added as their videos come out.
 
-Each folder has a working browser demo and the code to use it. Download this repository with **Code > Download ZIP**, unzip it, then open a component's `demo.html`. No package install or build step.
+## Pull Lamp
 
-## Pick a component
+A desk lamp that switches the page between light and dark themes. Pull the brass cord, tap it, or use the keyboard.
 
-| Preview | Component | What it does |
-| --- | --- | --- |
-| [![Pull Lamp](previews/pull-lamp.jpg)](components/pull-lamp) | [Pull Lamp](components/pull-lamp) | Pull the cord to switch the theme. |
-| [![Contact Pocket](previews/contact-pocket.jpg)](components/contact-pocket) | [Contact Pocket](components/contact-pocket) | A contact card with links and email copying. |
-| [![Signal Orb](previews/signal-orb.jpg)](components/signal-orb) | [Signal Orb](components/signal-orb) | Listening, thinking, searching and done, drawn with particles. |
-| [![Side A](previews/side-a.jpg)](components/side-a) | [Side A](components/side-a) | A record player with real audio, seeking and volume. |
-| [![Pocket Files](previews/pocket-files.jpg)](components/pocket-files) | [Pocket Files](components/pocket-files) | A file dock with expanding previews. |
-| [![Postmark](previews/postmark.jpg)](components/postmark) | [Postmark](components/postmark) | A send interaction that folds and seals a paper note. |
-| [![Project Stack](previews/project-stack.jpg)](components/project-stack) | [Project Stack](components/project-stack) | Three project cards for a small portfolio. |
-| [![Engine Room](previews/engine-room.jpg)](components/engine-room) | [Engine Room](components/engine-room) | A throttle that separates a request from its confirmation. |
-| [![Launch Switch](previews/launch-switch.jpg)](components/launch-switch) | [Launch Switch](components/launch-switch) | A mechanical button animation. Visual demo, not a deploy tool. |
+<a href="components/pull-lamp"><img src="previews/pull-lamp.jpg" width="480" alt="Pull Lamp: a green desk lamp with a brass pull cord"></a>
 
-## Use the code
+### Download and try
 
-Start with the README inside the component folder. Most examples are standalone Web Components with scoped styles. Copy the component script, load it with a `<script>` tag, and use its custom element. Replace demo links and content with your own.
+1. [Download the ZIP](https://github.com/aqualang89/shipnotes-components/archive/refs/heads/main.zip), or use **Code > Download ZIP** above.
+2. Extract the ZIP to a folder on your computer.
+3. Open `components/pull-lamp/demo.html` in your browser. Keep `pull-lamp.js` beside it.
 
-Eight components need no runtime library. Launch Switch contains GSAP, with its own license notice preserved. These are HTML, CSS, JavaScript, SVG and Canvas experiments, not a pure-CSS collection.
+No account, package install or build step. The demo works locally without a server. GitHub displays the source; opening the HTML file after extraction runs the demo.
 
-The demos are front-end examples. Postmark does not send mail by itself, Signal Orb does not call an AI service, and Engine Room has no hardware connection. Each README explains what is real and what is simulated. Reduced-motion and keyboard support vary by component; read its notes before integrating. Chromium has been tested; comprehensive cross-browser testing has not.
+### Add it to your site
+
+Follow the [Pull Lamp instructions](components/pull-lamp/README.md) for a complete HTML example. Copy one JavaScript file and connect its `themechange` event to your page's colors. The SVG illustration is included in the component. No runtime libraries or image downloads.
+
+Mouse, touch, keyboard and reduced motion are supported. Tested in Chromium on desktop and at a 390px mobile viewport. Safari, Firefox and physical phones have not been tested in this release check.
 
 ## Follow the builds
 
-[Ship Notes on X](https://x.com/shipnotesai). Existing gist links remain available; this repository is the shared catalog for new updates.
+[Ship Notes on X](https://x.com/shipnotesai). Follow along for the next component and its source.
 
 ## License
 
-Our code is [MIT licensed](LICENSE). Use it in personal or commercial projects, modify it, and keep the license notice when redistributing it. Embedded third-party code keeps its own terms; see [THIRD_PARTY.md](THIRD_PARTY.md).
+The code is [MIT licensed](LICENSE). Use it in personal or commercial projects, modify it, and keep the license notice when redistributing it.
