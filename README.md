@@ -2,6 +2,14 @@
 
 Small interfaces with moving parts, built for [Ship Notes](https://x.com/shipnotesai). New components are added as their videos come out.
 
+## Signal Orb
+
+A status light for an AI app: listening, thinking, searching and done, drawn with 12,000 particles on WebGL. Your app sets the state; the orb rebuilds into the new shape.
+
+<a href="components/signal-orb"><img src="previews/signal-orb.jpg" width="480" alt="Signal Orb: purple particle ribbons in the thinking state"></a>
+
+**[Try it live](https://aqualang89.github.io/shipnotes-components/components/signal-orb/demo.html)**. Full usage in the [Signal Orb instructions](components/signal-orb/README.md). One JavaScript file, no libraries. It uses fewer particles on phones and cuts the count further if frames run slow.
+
 ## Pull Lamp
 
 A desk lamp that switches the page between light and dark themes. Pull the brass cord, tap it, or use the keyboard.
