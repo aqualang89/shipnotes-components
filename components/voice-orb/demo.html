@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>Voice Orb / Ship Notes</title>
+  <link rel="icon" href="data:,">
+  <script src="voice-orb.js" defer></script>
+  <style>
+    *{box-sizing:border-box}
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#eeeaf6;background:#050507;-webkit-font-smoothing:antialiased}
+    body{margin:0;min-height:100svh}
+    button,input{font:inherit}
+    button{touch-action:manipulation;cursor:pointer;-webkit-tap-highlight-color:transparent}
+    button:focus-visible,a:focus-visible{outline:2px solid #bdaaff;outline-offset:5px}
+    .page{width:min(100%,1000px);margin:0 auto;padding:32px 32px 24px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:11px;letter-spacing:.13em;color:#96919f}
+    header strong{font-size:11px;font-weight:650;color:#d5cfdf}
+    header span:last-child{font-variant-numeric:tabular-nums}
+    main{text-align:center;padding-top:52px}
+    .eyebrow{font:500 10px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.23em;text-transform:uppercase;color:#8d7fa5;margin:0 0 14px}
+    h1{font-size:clamp(35px,5.5vw,60px);line-height:1.04;letter-spacing:-.055em;font-weight:520;margin:0;text-wrap:balance}
+    .intro{color:#96909f;font-size:14px;margin:16px 0 0;line-height:1.6;text-wrap:pretty}
+    .stage{width:min(100%,570px);margin:-5px auto -12px;position:relative}
+    voice-orb{width:100%}
+    .signal{display:flex;justify-content:center;gap:18px;margin:0 0 26px;font:10px ui-monospace,SFMono-Regular,Consolas,monospace;color:#8b8595;letter-spacing:.09em}
+    .meter{display:flex;gap:7px;align-items:center}
+    .track{display:block;width:38px;height:2px;background:#282330;overflow:hidden;border-radius:2px}
+    .track i{display:block;width:100%;height:100%;background:#ae94d8;transform:scaleX(0);transform-origin:left}
+    .states{display:flex;width:min(100%,450px);margin:0 auto;padding:4px;background:#111014;border-radius:15px;box-shadow:0 0 0 1px #ffffff0c,0 8px 22px #0003}
+    .states button{border:0;background:transparent;color:#8f879a;min-height:44px;min-width:0;flex:1;padding:0 8px;border-radius:11px;font-size:12px;transition:background .25s,color .25s,box-shadow .25s,transform .15s}
+    .states button[aria-pressed="true"]{color:#f3edf9;background:#26212d;box-shadow:0 2px 6px #0004,inset 0 1px #ffffff0c}
+    .states button:active,.actions button:active{transform:scale(.96)}
+    .actions{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:23px auto 0}
+    .actions button{min-height:46px;padding:0 16px;border:1px solid #ffffff12;border-radius:99px;background:#141217;color:#cfc6da;font-size:12px;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,border-color .2s,transform .15s}
+    .actions button:first-child{color:#201b29;background:#e7dbfa;border-color:#e7dbfa}
+    .actions button[aria-pressed="true"]{box-shadow:0 0 0 2px #ad8bd844;border-color:#ae8bcf}
+    .actions svg{width:15px;height:15px;flex-shrink:0}
+    .actions button:disabled{opacity:.5;cursor:wait}
+    @media(hover:hover){.states button:hover{color:#fff}.actions button:hover{border-color:#b393d1}}
+    #status{font-size:11px;line-height:1.6;color:#88808f;min-height:36px;max-width:430px;margin:15px auto 0;text-wrap:pretty}
+    footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid #ffffff0a;padding-top:20px;margin-top:30px;color:#6f687a;font:10px ui-monospace,SFMono-Regular,Consolas,monospace}
+    footer a{color:#a99ab7;text-decoration:none;min-height:40px;display:inline-flex;align-items:flex-start}
+    footer span{line-height:1.6}
+    @media(max-width:520px){.page{padding:24px 18px 14px}header{font-size:9px;letter-spacing:.08em}main{padding-top:44px}.intro{font-size:12px;margin-top:13px}.stage{margin:15px auto 0}.signal{margin-bottom:24px;gap:15px}.actions{gap:8px;margin-top:20px}.actions button{padding:0 12px;font-size:11px;min-height:46px}.states button{font-size:11px;padding:0 5px}footer{margin-top:24px;font-size:9px}.eyebrow{font-size:9px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header><strong>SHIP NOTES</strong><span>012 / VOICE ORB</span></header>
+  <main>
+    <p class="eyebrow">An interface for sound</p>
+    <h1>Give it a voice.</h1>
+    <p class="intro">A thousand little reactions. One living surface.</p>
+    <div class="stage"><voice-orb state="idle"></voice-orb></div>
+    <div class="signal" aria-hidden="true">
+      <span class="meter">LOW <span class="track"><i></i></span></span>
+      <span class="meter">MID <span class="track"><i></i></span></span>
+      <span class="meter">HIGH <span class="track"><i></i></span></span>
+    </div>
+    <div class="states" role="group" aria-label="Orb state">
+      <button data-state="idle" aria-pressed="true">Idle</button>
+      <button data-state="listening" aria-pressed="false">Listening</button>
+      <button data-state="thinking" aria-pressed="false">Thinking</button>
+      <button data-state="speaking" aria-pressed="false">Speaking</button>
+    </div>
+    <div class="actions">
+      <button id="mic" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-4 0h8"/></svg><span>Talk to it</span></button>
+      <button id="sample" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m8 5 11 7-11 7Z"/></svg><span>Play sample</span></button>
+      <button id="beat" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10v4m4-8v12m4-15v18m4-15v12m4-8v4"/></svg><span>Play beat</span></button>
+    </div>
+    <p id="status" role="status" aria-live="polite">Try the sample, or let it hear you. Audio stays in your browser.</p>
+  </main>
+  <footer><span>WEB COMPONENT / NO LIBRARIES</span><a href="README.md">Use this orb ↗</a></footer>
+</div>
+<script>
+window.addEventListener('DOMContentLoaded',()=>{
+  const orb=document.querySelector('voice-orb'),status=document.querySelector('#status');
+  const buttons=[...document.querySelectorAll('[data-state]')],actions=[...document.querySelectorAll('.actions button')];
+  const labels={mic:'Talk to it',sample:'Play sample',beat:'Play beat'};
+  const motion=matchMedia('(prefers-reduced-motion: reduce)');
+  let context=null,source=null,stream=null,mode=null,serial=0,meterFrame=0;
+  function state(value){orb.state=value;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.state===value)));}
+  buttons.forEach(b=>b.addEventListener('click',()=>state(b.dataset.state)));
+  function setMode(value){mode=value;actions.forEach(b=>{b.setAttribute('aria-pressed',String(b.id===value));b.querySelector('span').textContent=b.id===value?'Stop':labels[b.id];});}
+  function stop(){serial++;if(source){source.onended=null;try{source.stop();}catch(_){}source.disconnect();source=null;}stream?.getTracks().forEach(t=>t.stop());stream=null;orb.disconnect();setMode(null);state('idle');status.textContent='Ready when you are. Audio stays in your browser.';}
+  function audio(){context??=new(window.AudioContext||window.webkitAudioContext)();if(context.state==='suspended')context.resume();return context;}
+  function noise(i){let n=(i+1)*374761393;n=(n^(n>>>13))*1274126177;return ((n^(n>>>16))>>>0)/2147483648-1;}
+  function makeSample(ctx,kind){
+    const seconds=kind==='beat'?8:6,sr=ctx.sampleRate,buffer=ctx.createBuffer(1,Math.ceil(sr*seconds),sr),out=buffer.getChannelData(0);
+    if(kind==='beat'){
+      const beat=60/112;
+      for(let i=0;i<out.length;i++){
+        const t=i/sr,bar=t/(beat*4),gap=t>3.55&&t<4.28;
+        if(gap)continue;
+        const local=t%beat,hat=t%(beat*.5),step=Math.floor(t/beat),note=[55,55,65.406,49][Math.floor(bar)%4];
+        const kick=.59*Math.exp(-local*20)*Math.sin(2*Math.PI*(48*local+95*(1-Math.exp(-local*38))/38));
+        const bass=.14*Math.sin(2*Math.PI*note*t)*Math.min(1,local/.012)*Math.exp(-local*3.8);
+        const hatSound=.047*noise(i)*Math.exp(-hat*95)*(step%2?.7:1);
+        const snare=step%2?.095*noise(i+271)*Math.exp(-local*29):0;
+        const fade=Math.min(1,t/.008,(seconds-t)/.08);
+        out[i]=(kick+bass+hatSound+snare)*Math.max(0,fade);
+      }
+    }else{
+      const starts=[.25,.78,1.21,1.86,2.30,2.85,3.62,4.16,4.67,5.17],vowels=[[650,1100,2500],[350,2100,2900],[400,850,2300],[750,1250,2600]];
+      for(let j=0;j<starts.length;j++){
+        const start=starts[j],duration=j%3===0?.43:.30,f0=126+(j%4)*13,formants=vowels[j%vowels.length];
+        const amps=[];for(let k=1;k<=26;k++)amps[k]=(.14/k+formants.reduce((a,f)=>a+Math.exp(-.5*((k*f0-f)/125)**2),0)*.17);
+        for(let i=Math.floor(start*sr);i<Math.min(out.length,(start+duration)*sr);i++){
+          const t=i/sr-start,u=t/duration,env=Math.sin(Math.PI*u)**1.4;let value=0;
+          for(let k=1;k<=26;k++)value+=amps[k]*Math.sin(2*Math.PI*k*f0*t+.10*k*Math.sin(t*14));
+          out[i]+=(value*.24+noise(i+j*79)*.007)*env;
+        }
+      }
+    }
+    return buffer;
+  }
+  async function play(kind){
+    if(mode===kind){stop();return;}
+    stop();const token=serial;
+    try{
+      const ctx=audio(),node=ctx.createBufferSource();node.buffer=makeSample(ctx,kind);node.connect(ctx.destination);source=node;
+      await orb.connect(node);if(token!==serial)return;
+      state('speaking');setMode(kind);
+      status.textContent=kind==='beat'?'112 BPM. Kick, bass and hats. Wait for the break.':'Synthesized vowels. No recording, no voice service.';
+      node.onended=()=>{if(token===serial)stop();};node.start();
+    }catch(e){stop();status.textContent=e.message;}
+  }
+  document.querySelector('#sample').addEventListener('click',()=>play('sample'));
+  document.querySelector('#beat').addEventListener('click',()=>play('beat'));
+  document.querySelector('#mic').addEventListener('click',async()=>{
+    if(mode==='mic'){stop();return;}
+    stop();const token=serial,button=document.querySelector('#mic');button.disabled=true;
+    try{
+      if(!navigator.mediaDevices?.getUserMedia)throw new Error('Microphone needs HTTPS or localhost. You can still play the samples.');
+      // Resume during the click, before a permission dialog can consume the activation.
+      const ctx=audio();
+      const next=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}});
+      if(token!==serial){next.getTracks().forEach(t=>t.stop());return;}
+      stream=next;await orb.connect(ctx.createMediaStreamSource(next));
+      state('listening');setMode('mic');status.textContent='Listening locally. Tap Stop to release your microphone.';
+      next.getAudioTracks()[0].addEventListener('ended',()=>{if(token===serial)stop();},{once:true});
+    }catch(e){if(token===serial){stop();status.textContent=e.name==='NotAllowedError'?'Microphone access was declined. Try Play sample or Play beat.':e.message;}}
+    finally{button.disabled=false;}
+  });
+  const meters=[...document.querySelectorAll('.track i')];
+  function meter(){const b=motion.matches?[0,0,0]:orb.bands;meters.forEach((el,i)=>el.style.transform=`scaleX(${b[i]})`);if(!document.hidden&&!motion.matches)meterFrame=requestAnimationFrame(meter);}
+  function syncMeters(){cancelAnimationFrame(meterFrame);meter();}
+  motion.addEventListener('change',syncMeters);document.addEventListener('visibilitychange',syncMeters);meter();
+  window.addEventListener('pagehide',()=>{stop();context?.close().catch(()=>{});context=null;});
+});
+</script>
+</body>
+</html>

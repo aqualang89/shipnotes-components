@@ -2,6 +2,16 @@
 
 Small interfaces with moving parts, built for [Ship Notes](https://x.com/shipnotesai). New components are added as their videos come out.
 
+Want one built for your product? [DM me on X](https://x.com/shipnotesai).
+
+## Voice Orb
+
+A voice orb for an AI app: 12,000 particles on WebGL that react to live sound from a mic or anything playing on the page. Bass moves the whole sphere, and the highs throw sparks off the edge. Four states: idle, listening, thinking and speaking.
+
+<a href="components/voice-orb"><img src="previews/voice-orb.jpg" width="480" alt="Voice Orb: a pink particle sphere bursting on a bass hit in the speaking state"></a>
+
+**[Try it live](https://aqualang89.github.io/shipnotes-components/components/voice-orb/demo.html)**. Tap Play beat, or Talk to it for the mic. Full usage in the [Voice Orb instructions](components/voice-orb/README.md). One JavaScript file, no libraries, and the audio never leaves your browser.
+
 ## Project Stack
 
 Three portfolio cards in a stack. Pick a tab and the next card comes forward. Give a project an `accent` color and its card follows it.
@@ -42,7 +52,7 @@ Mouse, touch, keyboard and reduced motion are supported. Tested in Chromium on d
 
 ## Follow the builds
 
-[Ship Notes on X](https://x.com/shipnotesai). Follow along for the next component and its source.
+[Ship Notes on X](https://x.com/shipnotesai). Follow along for the next component and its source. Need a custom one for your product? DM me there.
 
 ## License
 
