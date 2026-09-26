@@ -2,6 +2,14 @@
 
 Small interfaces with moving parts, built for [Ship Notes](https://x.com/shipnotesai). New components are added as their videos come out.
 
+## Project Stack
+
+Three portfolio cards in a stack. Pick a tab and the next card comes forward. Give a project an `accent` color and its card follows it.
+
+<a href="components/project-stack"><img src="previews/project-stack.jpg" width="480" alt="Project Stack: a dark card with a mint planet and ring, two cards stacked behind"></a>
+
+**[Try it live](https://aqualang89.github.io/shipnotes-components/components/project-stack/demo.html)**. Full usage in the [Project Stack instructions](components/project-stack/README.md). One JavaScript file, no libraries.
+
 ## Signal Orb
 
 A status light for an AI app: listening, thinking, searching and done, drawn with 12,000 particles on WebGL. Your app sets the state; the orb rebuilds into the new shape.
