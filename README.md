@@ -4,6 +4,14 @@ Small interfaces with moving parts, built for [Ship Notes](https://x.com/shipnot
 
 Want one built for your product? [DM me on X](https://x.com/shipnotesai).
 
+## Jelly Stack
+
+Project Stack, but the three cards are jelly. Pull a corner and it stretches, flick it and it whips, tap the card behind and it hops out and splats. Each card is 81 points on springs, and the text bends with the surface.
+
+<a href="components/jelly-stack"><img src="previews/jelly-stack.jpg" width="480" alt="Jelly Stack: a red glossy card bending like jelly, orange and purple cards stacked behind"></a>
+
+**[Try it live](https://aqualang89.github.io/shipnotes-components/components/jelly-stack/demo.html)**. Full usage in the [Jelly Stack instructions](components/jelly-stack/README.md). One JavaScript file, no libraries, WebGL with a plain CSS fallback.
+
 ## Voice Orb
 
 A voice orb for an AI app: 12,000 particles on WebGL that react to live sound from a mic or anything playing on the page. Bass moves the whole sphere, and the highs throw sparks off the edge. Four states: idle, listening, thinking and speaking.

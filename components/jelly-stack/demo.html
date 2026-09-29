@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jelly Stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ede7df;--ink:#2b2521}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100svh;display:flex;flex-direction:column;align-items:center;padding:28px 16px 40px}
+header{width:100%;max-width:1040px}
+h1{font:400 clamp(48px,9vw,84px)/.88 "Instrument Serif",Georgia,serif;margin:0;letter-spacing:-.5px}
+h1 i{display:block}
+header p{margin:12px 0 0;font-size:13px;line-height:1.5;color:#7d7269;max-width:230px}
+main{flex:1;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:56px}
+jelly-stack{--jelly-serif:"Instrument Serif",Georgia,serif}
+.poke{margin-top:6px;min-height:44px;padding:0 24px;border-radius:22px;border:1px solid #2b252126;background:#ffffff99;font:inherit;font-size:14px;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s}
+.poke:active{transform:scale(.95)}
+.poke:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Jelly<i>Stack.</i></h1>
+  <p>Three project cards made of jelly. Pull one, pick another, poke it.</p>
+</header>
+<main>
+  <jelly-stack intro>
+    <script type="application/json">
+    [
+      {"title": "Orbit", "tag": "BRAND & WEB", "description": "A home for your next big idea.", "href": "https://example.com/#orbit"},
+      {"title": "Forma", "tag": "DESIGN SYSTEM", "description": "A small system for making things feel consistent.", "href": "https://example.com/#forma"},
+      {"title": "Echo", "tag": "DIGITAL PRODUCT", "description": "A quieter place for your favourite sounds.", "href": "https://example.com/#echo"}
+    ]
+    </script>
+  </jelly-stack>
+  <button class="poke" type="button">Poke</button>
+</main>
+<script src="jelly-stack.js"></script>
+<script>
+document.querySelector('.poke').addEventListener('click', () => document.querySelector('jelly-stack').poke());
+</script>
+</body>
+</html>
