@@ -4,6 +4,14 @@ Small interfaces with moving parts, built for [Ship Notes](https://x.com/shipnot
 
 Want one built for your product? [DM me on X](https://x.com/shipnotesai).
 
+## Speaking Orb
+
+A face for your voice assistant. The orb talks: it swells with the voice, and every word flies out of it as particles and lands as a live caption. Listening, thinking, searching, speaking and done. One line makes it speak with the browser's own voice, or plug in your TTS audio and it follows the real sound.
+
+<a href="components/speaking-orb"><img src="previews/speaking-orb.jpg" width="480" alt="Speaking Orb: a pink particle sphere in the speaking state, particles flying down and forming the word Good"></a>
+
+**[Try it live](https://aqualang89.github.io/shipnotes-components/components/speaking-orb/demo.html)**. Tap a line and it speaks. Full usage in the [Speaking Orb instructions](components/speaking-orb/README.md). One JavaScript file, no libraries, no keys, nothing leaves the page.
+
 ## Jelly Stack
 
 Project Stack, but the three cards are jelly. Pull a corner and it stretches, flick it and it whips, tap the card behind and it hops out and splats. Each card is 81 points on springs, and the text bends with the surface.

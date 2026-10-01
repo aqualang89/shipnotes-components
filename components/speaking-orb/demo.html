@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Speaking Orb · Ship Notes</title>
+<meta name="description" content="A face for your voice assistant: a particle orb that talks, with live captions. One file, no libraries.">
+<style>
+  :root{color-scheme:dark;--bg:#07070c;--ink:#f4f1fa;--mute:#a49db4;--line:rgba(255,255,255,.1);--chip:rgba(255,255,255,.05)}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  body{min-height:100svh;display:flex;flex-direction:column;align-items:center;padding:28px 16px 40px;overflow-x:hidden}
+  header{text-align:center;max-width:560px}
+  .kick{font:600 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.2em;text-transform:uppercase;color:#d9a3c8}
+  h1{margin:12px 0 6px;font-size:clamp(30px,8vw,48px);line-height:1.05;letter-spacing:-.03em;font-weight:650}
+  header p{margin:0;color:var(--mute)}
+  speaking-orb{width:min(100%,440px);margin-top:8px}
+  .panel{width:min(100%,440px);margin-top:18px;display:grid;gap:10px}
+  .lines{display:grid;gap:8px}
+  button{font:inherit;color:var(--ink);background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:12px 14px;text-align:left;cursor:pointer;min-height:44px}
+  button:hover{background:rgba(255,255,255,.09)}
+  button:focus-visible,input:focus-visible{outline:2px solid #ff96d6;outline-offset:2px}
+  .row{display:flex;gap:8px}
+  input{flex:1;min-width:0;font:inherit;font-size:16px;color:var(--ink);background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+  .row button{text-align:center;flex:none}
+  .speak{background:#ff96d6;color:#1b0c16;border-color:transparent;font-weight:600}
+  .speak:hover{background:#ffb0e0}
+  .states{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+  .states button{padding:8px 12px;min-height:36px;font-size:14px;color:var(--mute);text-align:center}
+  .states button[aria-pressed=true]{color:var(--ink);border-color:rgba(255,255,255,.3)}
+  small{color:var(--mute);text-align:center;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div class="kick">An interface for your voice agent</div>
+  <h1>Your Jarvis needs a face.</h1>
+  <p>It talks, and you can read it with the sound off.</p>
+</header>
+
+<speaking-orb id="orb" state="listening" level="0.3"></speaking-orb>
+
+<div class="panel">
+  <div class="lines">
+    <button data-line="Good morning. You have three meetings today. The first one moved to ten.">Good morning. You have three meetings today.</button>
+    <button data-line="Done. Your site is live, and it loads in under a second.">Done. Your site is live.</button>
+    <button data-line="I found two flights under three hundred dollars. Want me to hold the cheaper one?">I found two flights under $300.</button>
+  </div>
+  <form class="row" id="f">
+    <input id="t" maxlength="160" placeholder="Type anything" aria-label="Text for the orb to say" autocomplete="off">
+    <button class="speak" type="submit">Speak</button>
+  </form>
+  <div class="states" role="group" aria-label="State">
+    <button data-s="listening" aria-pressed="true">Listening</button>
+    <button data-s="thinking" aria-pressed="false">Thinking</button>
+    <button data-s="searching" aria-pressed="false">Searching</button>
+    <button data-s="done" aria-pressed="false">Done</button>
+    <button id="mic" aria-pressed="false">Mic</button>
+  </div>
+  <small>It speaks with your browser's own voice. Plug in your TTS for the real thing. Nothing leaves the page.</small>
+</div>
+
+<script src="speaking-orb.js"></script>
+<script>
+  const orb = document.getElementById('orb'), states = [...document.querySelectorAll('[data-s]')], mic = document.getElementById('mic');
+  const mark = s => states.forEach(b => b.setAttribute('aria-pressed', b.dataset.s === s));
+  const talk = text => { orb.setAttribute('rest', 'listening'); orb.say(text); mark(''); };
+  document.querySelectorAll('[data-line]').forEach(b => b.onclick = () => talk(b.dataset.line));
+  document.getElementById('f').onsubmit = e => { e.preventDefault(); const v = document.getElementById('t').value.trim(); if (v) talk(v); };
+  states.forEach(b => b.onclick = () => { speechSynthesis?.cancel(); orb.state = b.dataset.s; mark(b.dataset.s); });
+  orb.addEventListener('end', () => mark(orb.state));
+  let stop;
+  mic.onclick = async () => {
+    if (stop) { stop(); stop = null; mic.setAttribute('aria-pressed', false); return; }
+    try { stop = await orb.listen(); mic.setAttribute('aria-pressed', true); mark('listening'); } catch { mic.textContent = 'No mic'; }
+  };
+</script>
+</body>
+</html>
