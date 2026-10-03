@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#061a21">
+  <meta name="description" content="Scroll 10,935 meters down to the deepest point of the ocean. The water takes the red first, then the light. Below 1,000 m your cursor is the only light.">
+  <title>HADAL · Expedition to the Challenger Deep</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='16' width='64' height='64' fill='%23071c25'/%3E%3Cpath d='M18 14v36m28-36v36M18 32h28' stroke='%23ff865b' stroke-width='8'/%3E%3C/svg%3E">
+  <link rel="preload" href="assets/BarlowCondensed-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="scene.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#sunlight">Skip to the descent</a>
+  <div class="world" aria-hidden="true"><canvas id="ocean"></canvas></div>
+
+  <header class="header">
+    <a class="wordmark" href="#surface" aria-label="Hadal, back to the surface">hadal<span class="brand-dot">.</span></a>
+    <nav aria-label="Main">
+      <a href="#sunlight">Descent</a>
+      <a href="#guide">Creatures</a>
+      <a href="#data">Numbers</a>
+      <button id="about-open" type="button">Field notes</button>
+    </nav>
+    <button class="sound-button" id="sound" type="button" aria-pressed="false"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="sound-label">Sound off</span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="surface" data-from="0" data-to="0" data-name="The surface">
+      <div class="hero-copy">
+        <h1>THERE IS<br>MORE<br>BELOW.</h1>
+        <p class="lede">A made-up expedition to the deepest point of the ocean. The ocean and its numbers are real.</p>
+        <a class="round-link" href="#sunlight"><span class="down-line" aria-hidden="true"></span><span>Start the descent</span></a>
+      </div>
+      <div class="specimen-tag"><span class="tag-line"></span><p>A small light.<br><span>A very big ocean.</span></p></div>
+    </section>
+
+    <section class="zone z-sun" id="sunlight" data-from="0" data-to="200" data-name="Sunlight zone">
+      <div class="frame"><div class="copy at-left">
+        <h2>RED GOES<br>FIRST.</h2>
+        <p>Water takes red light in the first 10 to 20 meters. Watch the jellyfish. Our buttons lose it too.</p>
+      </div></div>
+    </section>
+
+    <section class="zone z-twilight" id="twilight" data-from="200" data-to="1000" data-name="Twilight zone">
+      <div class="frame"><div class="copy at-right">
+        <h2>YOU HAVE<br>COMPANY.</h2>
+        <p>At 200 m about 1% of the sunlight is left. Three in four animals down here make light of their own.</p>
+        <button type="button" class="text-button" id="scan" aria-pressed="false">Reveal their structure <span aria-hidden="true">+</span></button>
+      </div></div>
+    </section>
+
+    <section class="zone z-midnight" id="midnight" data-from="1000" data-to="2500" data-name="Midnight zone">
+      <div class="frame"><div class="copy at-left at-low">
+        <h2 class="mid">THE SUN<br>IS GONE.</h2>
+        <p><span class="for-mouse">Below 1,000 m your cursor is the only light.</span><span class="for-touch">Below 1,000 m your finger is the only light.</span> Something red is hiding here. Find it, then tap it.</p>
+      </div>
+      <p class="callout" id="atolla-note" aria-live="polite"><strong>Atolla jellyfish.</strong> <span>When something grabs it, it flashes a ring of blue light. The alarm calls bigger animals to eat the attacker.</span></p>
+      </div>
+    </section>
+
+    <section class="zone z-angler" id="angler" data-from="2500" data-to="4000" data-name="Midnight zone">
+      <div class="frame"><div class="copy at-right at-low small">
+        <p class="whisper">Something down here is fishing.</p>
+      </div>
+      <p class="callout" id="angler-note" aria-live="polite"><strong>Humpback anglerfish.</strong> <span>The light on its rod is bacteria living inside the lure.</span></p>
+      </div>
+    </section>
+
+    <section class="zone z-abyss" id="abyss" data-from="4000" data-to="6000" data-name="Abyss">
+      <div class="frame"><div class="copy at-left">
+        <h2 class="mid">HALF A TON<br>PER SQUARE<br>CENTIMETER.</h2>
+        <p>That is the water pressing on you at 5,000 m. Our lander is calling from the bottom. Find its frequency.</p>
+        <div class="tuner">
+          <div class="tuner-heading"><label for="frequency">Hydrophone</label><output id="frequency-value" for="frequency">174 Hz</output></div>
+          <input id="frequency" type="range" min="80" max="320" value="174" step="1">
+          <div class="frequency-scale" aria-hidden="true"><span>80</span><span>200</span><span>320 Hz</span></div>
+          <div class="wave-meter" aria-hidden="true"></div>
+          <p id="tuner-status" role="status">Static. Keep turning.</p>
+        </div>
+      </div></div>
+    </section>
+
+    <section class="zone z-hadal" id="hadal" data-from="6000" data-to="10935" data-name="Hadal zone">
+      <div class="frame"><div class="copy at-right">
+        <h2>THE LAST<br>FISH.</h2>
+        <p>No fish has been filmed deeper than 8,336 m. A young snailfish, Izu-Ogasawara Trench, 2022. Below it, the crustaceans take over.</p>
+      </div></div>
+    </section>
+
+    <section class="zone bottom" id="bottom" data-from="10935" data-to="10935" data-name="Challenger Deep">
+      <div class="frame"><div class="copy at-center">
+        <h2 class="huge">10,935<span> m</span></h2>
+        <p>Challenger Deep. The deepest point we know of. Our lander got here first, and its lamps are the first warm color for 10 kilometers.</p>
+      </div>
+      <p class="callout" id="amphipod-note"><strong>Hirondellea gigas.</strong> <span>Amphipods about 3 cm long. Their gut turns sunken wood into sugar.</span></p>
+      </div>
+    </section>
+
+    <section class="guide" id="guide" data-from="10935" data-to="10935" data-name="Challenger Deep">
+      <div class="guide-head">
+        <h2>WHO YOU<br>PASSED</h2>
+        <p>Five animals from the way down, drawn from field records. The bar shows where each one lives.</p>
+      </div>
+      <div class="ruler" aria-hidden="true"><span></span><span></span><span class="scale"><b style="left:0">0 m</b><b style="left:36.6%">4,000</b><b style="left:73.2%">8,000</b><b style="left:100%">10,935</b></span><span></span></div>
+      <ol class="specimens">
+        <li class="specimen" data-draw="atolla" data-from="1000" data-to="4000">
+          <canvas aria-hidden="true"></canvas>
+          <div class="sp-name"><h3>Atolla jellyfish</h3><p><i>Atolla wyvillei</i></p></div>
+          <div class="sp-range"><span class="range"><i></i></span><span>1,000 to 4,000 m</span></div>
+          <p class="sp-fact">Bell 2 to 17 cm. Grabbed, it flashes a blue alarm that calls in bigger predators.</p>
+        </li>
+        <li class="specimen" data-draw="siphonophore" data-from="0" data-to="600">
+          <canvas aria-hidden="true"></canvas>
+          <div class="sp-name"><h3>Giant siphonophore</h3><p><i>Praya dubia</i></p></div>
+          <div class="sp-range"><span class="range"><i></i></span><span>Surface to 600 m</span></div>
+          <p class="sp-fact">Up to 40 m long. Not one animal: a colony of clones, each doing one job.</p>
+        </li>
+        <li class="specimen" data-draw="angler" data-from="100" data-to="4500">
+          <canvas aria-hidden="true"></canvas>
+          <div class="sp-name"><h3>Humpback anglerfish</h3><p><i>Melanocetus johnsonii</i></p></div>
+          <div class="sp-range"><span class="range"><i></i></span><span>100 to 4,500 m</span></div>
+          <p class="sp-fact">Females about 18 cm. The glowing lure is full of bacteria.</p>
+        </li>
+        <li class="specimen" data-draw="snailfish" data-from="6000" data-to="8336">
+          <canvas aria-hidden="true"></canvas>
+          <div class="sp-name"><h3>Hadal snailfish</h3><p><i>Pseudoliparis</i> sp.</p></div>
+          <div class="sp-range"><span class="range"><i></i></span><span>Filmed at 8,336 m</span></div>
+          <p class="sp-fact">The deepest fish ever filmed. A juvenile, Izu-Ogasawara Trench, 2022.</p>
+        </li>
+        <li class="specimen" data-draw="amphipod" data-from="8000" data-to="10935">
+          <canvas aria-hidden="true"></canvas>
+          <div class="sp-name"><h3>Hadal amphipod</h3><p><i>Hirondellea gigas</i></p></div>
+          <div class="sp-range"><span class="range"><i></i></span><span>Below 8,000 m</span></div>
+          <p class="sp-fact">Over 3 cm. Collected at 10,897 m. Digests sunken wood into sugar.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="data" id="data" data-from="10935" data-to="10935" data-name="Challenger Deep">
+      <div class="data-frame">
+        <div class="data-copy">
+          <h2>EVEREST<br>WOULD<br>DROWN.</h2>
+          <p>Stand it on the floor of the Challenger Deep and 2,086 m of water would still be above the summit.</p>
+          <dl class="legend">
+            <div><dt><i class="k-light"></i>Sunlight</dt><dd>1% left at 200 m. None below 1,000 m.</dd></div>
+            <div><dt><i class="k-press"></i>Pressure</dt><dd>Up 1 atmosphere every 10 m. About 1,090 at the bottom.</dd></div>
+          </dl>
+        </div>
+        <svg class="chart" id="chart" viewBox="0 0 420 720" role="img" aria-label="Depth chart from the surface to 10,935 m. Sunlight falls to 1% at 200 m and to nothing by 1,000 m. Pressure rises to about 1,090 atmospheres. Everest, 8,849 m tall, stands on the bottom with its summit 2,086 m below the surface."></svg>
+      </div>
+    </section>
+
+    <section class="finale" id="finale" data-from="10935" data-to="10935" data-name="Challenger Deep">
+      <div class="finale-copy">
+        <h2>KEEP A LITTLE<br>OF THE UNKNOWN.</h2>
+        <p>A postcard from 10,935 m. Yours to keep.</p>
+        <button class="primary" id="save" type="button">Save the postcard</button>
+        <p class="save-note" id="save-note" role="status"></p>
+        <a class="return-link" href="#surface">Back to the surface</a>
+      </div>
+      <footer>
+        <a class="wordmark" href="#surface">hadal<span class="brand-dot">.</span></a>
+        <p>A made-up expedition in a real ocean.<br>Built by <a href="https://x.com/shipnotesai">Ship Notes</a>. <a href="https://github.com/aqualang89/shipnotes-components/tree/main/worlds/hadal-expedition">Free code</a>.</p>
+      </footer>
+    </section>
+  </main>
+
+  <p class="callout" id="whale-note" aria-live="polite"><strong>Cuvier's beaked whale.</strong> <span>It dives to 2,992 m and can hold its breath for more than two hours.</span></p>
+
+  <aside class="hud" aria-label="Expedition instruments">
+    <div class="hud-depth"><output id="depth">0</output><span class="unit">m</span></div>
+    <div id="zone">The surface</div>
+    <div class="hud-row"><span><b id="atm">1</b> atm</span><span><b id="light">100%</b> sunlight</span></div>
+  </aside>
+
+  <nav class="rail" aria-label="Depth">
+    <span class="rail-line" aria-hidden="true"><i id="rail-dot"></i></span>
+    <a href="#surface"><span>0</span></a>
+    <a href="#twilight"><span>200</span></a>
+    <a href="#midnight"><span>1,000</span></a>
+    <a href="#abyss"><span>4,000</span></a>
+    <a href="#hadal"><span>6,000</span></a>
+    <a href="#bottom"><span>10,935</span></a>
+  </nav>
+
+  <div class="tools">
+    <span class="tool-hint" id="tool-hint">Tap the water</span>
+    <button id="sonar" type="button" aria-label="Send a sonar pulse"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 1v4m0 14v4M1 12h4m14 0h4"/></svg></button>
+    <button id="motion" type="button" aria-pressed="false" aria-label="Pause ambient motion"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path id="motion-icon" d="M9 5v14M15 5v14"/></svg></button>
+  </div>
+
+  <dialog id="field-notes" aria-labelledby="notes-title">
+    <div class="dialog-head"><span>Field notes</span><button id="about-close" type="button" aria-label="Close field notes">×</button></div>
+    <h2 id="notes-title">HOW TO<br>GET LOST.</h2>
+    <dl>
+      <div><dt>Descend</dt><dd>Scroll, or jump with the depth rail on the right.</dd></div>
+      <div><dt>Make a current</dt><dd>Move your pointer across the water.</dd></div>
+      <div><dt>Carry the light</dt><dd>Below 1,000 m your pointer is a lamp. On a phone, tap where you want it.</dd></div>
+      <div><dt>Call out</dt><dd>Tap the water, press Space, or use the sonar button.</dd></div>
+      <div><dt>Listen</dt><dd>Turn the sound on and tune the hydrophone in the abyss.</dd></div>
+    </dl>
+    <h3>Where the numbers come from</h3>
+    <ul class="sources">
+      <li>Challenger Deep 10,935 ± 6 m: Greenaway et al., 2021. Everest 8,848.86 m: 2020 survey.</li>
+      <li>Light in water and red animals: NOAA Ocean Exploration.</li>
+      <li>Three in four animals glow: Martini and Haddock, Scientific Reports, 2017.</li>
+      <li>Atolla, Praya, Melanocetus: MBARI Deep-Sea Guide, WHOI.</li>
+      <li>Deepest fish filmed, 8,336 m: University of Western Australia, 2023.</li>
+      <li>Cuvier's beaked whale, 2,992 m and 137.5 minutes: Schorr et al., PLOS ONE, 2014.</li>
+      <li>Hirondellea gigas and wood: Kobayashi et al., PLOS ONE, 2012.</li>
+    </ul>
+    <p class="notes-small">The expedition, the lander and its signal are made up. Sound is made in your browser. Nothing is recorded or sent anywhere.</p>
+  </dialog>
+  <noscript><div class="no-script">The ocean needs JavaScript to move. The story still reads fine below.</div></noscript>
+</body>
+</html>

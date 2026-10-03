@@ -4,6 +4,14 @@ Small interfaces with moving parts, built for [Ship Notes](https://x.com/shipnot
 
 Want one built for your product? [DM me on X](https://x.com/shipnotesai).
 
+## Hadal: the expedition (a world)
+
+A made-up expedition to the bottom of the Mariana Trench. Red goes first, even the buttons lose it. Below 1,000 m your cursor is the only light: find the red jellyfish, tap it and see what answers its alarm. A beaked whale lit by plankton, an anglerfish, the last fish at 8,336 m, a lander on the floor at 10,935 m.
+
+<a href="worlds/hadal-expedition"><img src="previews/hadal-expedition.jpg" width="480" alt="Hadal expedition: a red Atolla jellyfish flashing a ring of blue light in the beam of the cursor at 1,711 m"></a>
+
+**[Dive in live](https://aqualang89.github.io/shipnotes-components/worlds/hadal-expedition/)**, sound on. How it works in the [expedition notes](worlds/hadal-expedition/README.md). No libraries, no images: every animal is lines on one canvas, every sound synthesized in the browser.
+
 ## Hadal (a world)
 
 Scroll to the bottom of the ocean, 10,935 m down. The water takes the colors the way real water does, a red can turns black by 20 m, and below 1,000 m your cursor is the only light. Tap the water and the jellyfish flash back. Everest is drawn to scale at the bottom.
