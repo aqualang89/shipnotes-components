@@ -4,6 +4,14 @@ Small interfaces with moving parts, built for [Ship Notes](https://x.com/shipnot
 
 Want one built for your product? [DM me on X](https://x.com/shipnotesai).
 
+## Hadal (a world)
+
+Scroll to the bottom of the ocean, 10,935 m down. The water takes the colors the way real water does, a red can turns black by 20 m, and below 1,000 m your cursor is the only light. Tap the water and the jellyfish flash back. Everest is drawn to scale at the bottom.
+
+<a href="worlds/hadal"><img src="previews/hadal.jpg" width="480" alt="Hadal: glowing blue-green jellyfish in the dark at 1,973 m, marine snow and a string of light below"></a>
+
+**[Dive in live](https://aqualang89.github.io/shipnotes-components/worlds/hadal/)**, sound on. How it works in the [Hadal notes](worlds/hadal/README.md). One index.html, Three.js in the folder, every sound synthesized in the browser.
+
 ## Speaking Orb
 
 A face for your voice assistant. The orb talks: it swells with the voice, and every word flies out of it as particles and lands as a live caption. Listening, thinking, searching, speaking and done. One line makes it speak with the browser's own voice, or plug in your TTS audio and it follows the real sound.
