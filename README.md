@@ -6,11 +6,11 @@ Want one built for your product? [DM me on Instagram](https://www.instagram.com/
 
 ## Dust Orb
 
-A cloud of moving dust with light inside. Drag to turn it, tap for a pulse, or connect its five states to your assistant. The original Dust Orb is now free under MIT.
+A cloud of moving dust with light inside. In v2, the folds reach toward your cursor and the inner light follows a moment later. Drag to turn it, tap for a pulse, or connect its five states to your assistant. Free under MIT.
 
 <a href="components/dust-orb"><img src="previews/dust-orb.webp" width="480" alt="Dust Orb: a softly lit particle cloud on a dark background"></a>
 
-**[Try it live](https://aqualang89.github.io/shipnotes-components/components/dust-orb/demo.html)**. Bundled Three.js, automatic particle density and a Canvas fallback. [Code and setup](components/dust-orb/README.md).
+**[Try Dust v2](https://aqualang89.github.io/shipnotes-components/components/dust-orb/v2/)**. Bundled Three.js, optional Air + glass sound, automatic particle density and a Canvas fallback. [Code and setup](components/dust-orb/README.md). [Original v1](https://aqualang89.github.io/shipnotes-components/components/dust-orb/demo.html).
 
 ## Iris
 
