@@ -4,6 +4,14 @@ Small interfaces with moving parts, built for [Ship Notes](https://www.instagram
 
 Want one built for your product? [DM me on Instagram](https://www.instagram.com/shipnotesai/).
 
+## Card File
+
+A shelf for your projects that you can flip through. Swipe hard and it runs through every card, swipe gently and one card steps forward with its picture alive. Six worlds: gold glass, red paper, ice, wet neon, a power console and a night market. Put your own screenshots on the cards; a card without one gets its own drawing of light.
+
+<a href="components/card-file"><img src="previews/card-file.webp" width="480" alt="Card File: a row of gold-edged glass cards in perspective, the middle card Iris with a glowing golden ribbon"></a>
+
+**[Try it live](https://aqualang89.github.io/shipnotes-components/components/card-file/demo.html)**, works on a phone too. Plain HTML, CSS and JS with WebGL for the moving pictures, no libraries. Setup, card fields and events in the [Card File notes](components/card-file/README.md).
+
 ## Dust Orb
 
 A cloud of moving dust with light inside. In v2, the folds reach toward your cursor and the inner light follows a moment later. Drag to turn it, tap for a pulse, or connect its five states to your assistant. Free under MIT.
