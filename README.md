@@ -4,6 +4,15 @@ Small interfaces with moving parts, built for [Ship Notes](https://www.instagram
 
 Want one built for your product? [DM me on Instagram](https://www.instagram.com/shipnotesai/).
 
+## Bat Swarm
+
+A little Halloween colony for your desktop. They hang from real windows, follow
+your cursor and wake up when you move their perch. One takes a little longer.
+
+<a href="components/bat-swarm"><img src="previews/bat-swarm.webp" width="480" alt="Bat Swarm: a small colony of bats hanging from the top edges of two windows"></a>
+
+**[Download for Windows x64](https://github.com/aqualang89/shipnotes-components/releases/download/bat-swarm-v2.3.0/Bat-Swarm-Windows-x64.zip)** or **[try the web demo](https://aqualang89.github.io/shipnotes-components/components/bat-swarm/demo.html)**. The web component uses Canvas 2D and plain JavaScript. [Source and setup](components/bat-swarm/README.md), MIT.
+
 ## Card File
 
 A shelf for your projects that you can flip through. Swipe hard and it runs through every card, swipe gently and one card steps forward with its picture alive. Six worlds: gold glass, red paper, ice, wet neon, a power console and a night market. Put your own screenshots on the cards; a card without one gets its own drawing of light.

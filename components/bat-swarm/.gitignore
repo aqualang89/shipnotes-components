@@ -1,0 +1,6 @@
+desktop/node_modules/
+desktop/component/
+desktop/WindowProbe.exe
+checks/
+release/
+*.zip

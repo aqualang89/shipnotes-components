@@ -1,0 +1,16 @@
+{
+  "name": "shipnotes-bat-swarm",
+  "version": "2.3.0",
+  "private": true,
+  "description": "A small colony of bats for your Windows desktop.",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "build": "node build.cjs",
+    "package": "node build.cjs --package"
+  },
+  "devDependencies": {
+    "electron": "45.0.0"
+  },
+  "license": "MIT"
+}
