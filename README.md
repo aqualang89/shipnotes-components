@@ -4,6 +4,21 @@ Small interfaces with moving parts, built for [Ship Notes](https://www.instagram
 
 Want one built for your product? [DM me on Instagram](https://www.instagram.com/shipnotesai/).
 
+## ASCII Ghost
+
+A Halloween visitor made from the text on your page. Leave the page alone for a few seconds and letters lift out of your paragraphs, gather into a ghost and blink at you. Click it and every letter flies back to its own spot. Put it on your 404 page and it haunts all year.
+
+<a href="components/ascii-ghost"><img src="previews/ascii-ghost.webp" width="480" alt="ASCII Ghost: a large ghost built from cyan letters with two dark eye holes on black"></a>
+
+**[Try it live](https://aqualang89.github.io/shipnotes-components/components/ascii-ghost/demo.html)**, or add it with one line:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/aqualang89/shipnotes-components@main/components/ascii-ghost/ascii-ghost.js" defer></script>
+<ascii-ghost once until="2026-11-01"></ascii-ghost>
+```
+
+WebGL 2, no libraries. Your text stays in the page for copy, search and screen readers. Options, the 404 recipe and a pinned version in the [ASCII Ghost notes](components/ascii-ghost/README.md).
+
 ## Bat Swarm
 
 A little Halloween colony for your desktop. They hang from real windows, follow
