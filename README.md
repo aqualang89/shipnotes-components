@@ -1,3 +1,5 @@
+<img src="previews/banner.svg" width="100%" alt="Code that moves: motion-blurred type and a dark lily glowing from inside on warm paper">
+
 # Ship Notes components
 
 Small interfaces with moving parts, built for [Ship Notes](https://www.instagram.com/shipnotesai/). New components are added as their videos come out.
